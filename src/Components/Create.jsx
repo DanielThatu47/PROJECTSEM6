@@ -75,7 +75,7 @@ const styles = `
             border: 1px solid #ccc;
             border-radius: 5px;
             background-color: #f9f9f9;
-            width:80%;
+            width:97%;
         }
         
         .form-group {
