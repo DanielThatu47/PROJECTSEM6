@@ -22,7 +22,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-      <Route path='/unauthorized' element={!isAuthenticated ? <HomePage/>:<Navigate to= "/Classroom"/>}/>
+      <Route path='/unauthorized' element={ isAuthenticated ? <HomePage/>:<Navigate to= "/"/>}/>
         <Route path="/" element={<HomePage /> } />
         <Route path="/unauthorized" element={<UnauthorizedPage />} />
         {isAuthenticated &&(
