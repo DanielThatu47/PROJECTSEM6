@@ -67,15 +67,6 @@ const HomePage = ({ showPlusIcon = true }) => {
           )}
         </div>
         <div className="navbar-icons flex items-center">
-          {isAuthenticated && (
-            <div className="dropdown relative" onClick={toggleUserDropdown} ref={userDropdownRef}>
-              <img src={user.picture} alt={user.name} className="avatar w-8 h-8 rounded-full cursor-pointer ml-2" />
-              <div className={`dropdown-menu ${showUserDropdown ? 'block' : 'hidden'} absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded shadow-lg`}>
-                <a href="/Userclass" className="dropdown-item py-2 px-4 cursor-pointer block">View Classrooms</a>
-                <div className="dropdown-item py-2 px-4 cursor-pointer" onClick={() => logout({ returnTo: window.location.origin })}>Logout</div>
-              </div>
-            </div>
-          )}
           {isAuthenticated && showPlusIcon && (
             <div className="dropdown relative" onClick={toggleDropdown} ref={dropdownRef}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" className="bi bi-plus w-6 h-6 mr-2" viewBox="0 0 24 24">
@@ -85,6 +76,15 @@ const HomePage = ({ showPlusIcon = true }) => {
               <div className={`dropdown-menu ${showDropdown ? 'block' : 'hidden'} absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded shadow-lg`}>
                 <div className="dropdown-item py-2 px-4 cursor-pointer" onClick={() => window.location.href = '/Create'}>Create Classroom</div>
                 <div className="dropdown-item py-2 px-4 cursor-pointer" onClick={() => window.location.href = '/join'}>Join Classroom</div>
+              </div>
+            </div>
+          )}
+          {isAuthenticated && (
+            <div className="dropdown relative" onClick={toggleUserDropdown} ref={userDropdownRef}>
+              <img src={user.picture} alt={user.name} className="avatar w-8 h-8 rounded-full cursor-pointer ml-2" />
+              <div className={`dropdown-menu ${showUserDropdown ? 'block' : 'hidden'} absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded shadow-lg`}>
+                <a href="/Userclass" className="dropdown-item py-2 px-4 cursor-pointer block">View Classrooms</a>
+                <div className="dropdown-item py-2 px-4 cursor-pointer" onClick={() => logout({ returnTo: window.location.origin })}>Logout</div>
               </div>
             </div>
           )}
