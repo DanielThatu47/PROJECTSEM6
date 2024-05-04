@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from
+'react';
 import 'tailwindcss/tailwind.css';
 import Homepage from './HomePage';
 import axios from 'axios';
@@ -31,7 +32,7 @@ const ClassroomInterface = () => {
   useEffect(() => {
     const fetchPostedQuiz = async () => {
       try {
-        const response = await axios.get(`https://aimlbackend.onrender.com/post/${code}/${heading}/${email}`);
+        const response = await axios.get(`https://aimlbackend.onrender.com/post/${code}/${heading}`);
         if (response.data.Assigned) {
           setPostedQuiz(response.data.Assigned.quiz);
           console.log(response);
@@ -40,21 +41,35 @@ const ClassroomInterface = () => {
         console.error('Error fetching posted quiz:', error);
       }
     };
-
     fetchPostedQuiz();
   }, []);
 
+  useEffect(() => {
+    const fetchPostedQuizByEmail = async () => {
+      try {
+        const response = await axios.get(`https://aimlbackend.onrender.com/post/${code}/${heading}/${email}`);
+        if (response.data.Assigned) {
+          setPostedQuiz(response.data.Assigned.quiz);
+          console.log(response);
+        }
+      } catch (error) {
+        console.error('Error fetching posted quiz by email:', error);
+      }
+    };
+    fetchPostedQuizByEmail();
+  }, []);
+
   return (
-    <>
+    <body className="bg-gray-100">
       {classroom ? (
-        <div className="bg-gray-100 min-h-screen">
+        <>
           <Homepage showPlusIcon={false} />
           <div className="container mx-auto px-4">
             <div className="bg-blue-500 text-white p-4 rounded-lg shadow-md">
               <h1 className="text-3xl font-bold">{classroom.title}</h1>
               <p className="text-xl">{classroom.description}</p>
             </div>
-            <div className="mt-4">
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
               {user.email === classroom.teacher ? (
                 <div className="bg-zinc-100 p-4 rounded-lg shadow-md mb-4">
                   <p>Assigned quizzes here</p>
@@ -89,20 +104,21 @@ const ClassroomInterface = () => {
               )}
 
               {postedQuiz.length > 0 &&
-                postedQuiz.map((pq) => (
-                  pq.assigned && (
-                    <div className="bg-white p-4 rounded-lg shadow-sm mb-4" key={pq.id}>
-                      <Link to={`/quiz/${code}/${pq.heading}`}>
-                        <h3 className="font-semibold text-lg">{pq.heading}</h3>
-                      </Link>
-                    </div>
-                  )
-                ))}
+                postedQuiz.map(
+                  (pq) =>
+                    pq.assigned && (
+                      <div className="bg-white p-4 rounded-lg shadow-sm mb-4" key={pq.id}>
+                        <Link to={`/quiz/${code}/${pq.heading}`}>
+                          <h3 className="font-semibold text-lg">{pq.heading}</h3>
+                        </Link>
+                      </div>
+                    )
+                )}
             </div>
           </div>
-        </div>
+        </>
       ) : null}
-    </>
+    </body>
   );
 };
 
