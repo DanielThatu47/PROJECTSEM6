@@ -61,7 +61,7 @@ const styles = `
             border: 1px solid #ccc;
             border-radius: 5px;
             background-color: #f9f9f9;
-            width: 70;
+            width: 70%;
         }
         
         .form-group {
