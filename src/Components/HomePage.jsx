@@ -111,10 +111,7 @@ const HomePage = ({ showPlusIcon = true }) => {
               </div>
             </div>
           </div>
-          <script
-              chatbot_id="66ecf8c73cde69172993d094"
-              src="https://app.thinkstack.ai/bot/thinkstackai-loader.min.js">
-          </script>
+          
         </body>
       )}
     </div>
