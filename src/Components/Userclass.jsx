@@ -12,7 +12,7 @@ const Userclass = () => {
 
     const fetchUserClassrooms = async () => {
         try {
-            const response = await axios.get(`https://aimlbackend.onrender.com/joined/${user.email}`);
+            const response = await axios.get(`https://aimlbackend.vercel.app/joined/${user.email}`);
             console.log(response)
             setUserClassrooms(response.data.classrooms);
         } catch (error) {
