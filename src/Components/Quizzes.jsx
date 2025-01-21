@@ -18,7 +18,7 @@ const Quizzes = () => {
             // console.log("hii",e.target.value)
             const heading = e.target.value
             // const heading = quizzes[index].heading
-            const response = await axios.get(`https://aimlbackend.onrender.com/post/${code}/${heading}`);
+            const response = await axios.get(`https://aimlbackend.vercel.app/post/${code}/${heading}`);
             // setQuizzes(response.data.quizzes);
             console.log(response)
             if (response.data) {
