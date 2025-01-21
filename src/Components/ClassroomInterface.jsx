@@ -29,7 +29,7 @@ const ClassroomInterface = () => {
   useEffect(() => {
     const fetchPostedQuiz = async () => {
       try {
-        const response = await axios.get(`https://aimlbackend.onrender.com/post/${code}/${heading}`);
+        const response = await axios.get(`https://aimlbackend.vercel.app/post/${code}/${heading}`);
         if (response.data.Assigned) {
           setPostedQuiz(response.data.Assigned.quiz);
           console.log(response);
