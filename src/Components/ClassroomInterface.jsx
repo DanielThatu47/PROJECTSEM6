@@ -14,7 +14,7 @@ const ClassroomInterface = () => {
 
   const fetchclassroomDetails = async () => {
     try {
-      const response = await axios.get(`https://aimlbackend.onrender.com/classrooms/bycode/${code}`);
+      const response = await axios.get(`https://aimlbackend.vercel.app/classrooms/bycode/${code}`);
       console.log(response);
       setClassrooms(response.data.classroom);
     } catch (error) {
