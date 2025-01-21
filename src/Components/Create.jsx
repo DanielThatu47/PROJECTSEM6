@@ -21,7 +21,7 @@ const Create = () => {
     const handleCreateClassroom = async () => {
         try {
             const classroomCode = nanoid(8); // Generate unique code
-            const response = await axios.post('https://aimlbackend.onrender.com/classrooms', {
+            const response = await axios.post('https://aimlbackend.vercel.app/classrooms', {
                 title: className,
                 description: classDescription,
                 code: classroomCode, // Save code in database
