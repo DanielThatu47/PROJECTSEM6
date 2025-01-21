@@ -15,7 +15,7 @@ const Classroom = () => {
     // Function to fetch data from the server
     const fetchClassrooms = async () => {
         try {
-            const response = await axios.get('https://aimlbackend.onrender.com/classrooms');
+            const response = await axios.get('https://aimlbackend.vercel.app/classrooms');
             console.log(response.data.classrooms)
             // Set the fetched data in the state
             setClassrooms(response.data.classrooms);
