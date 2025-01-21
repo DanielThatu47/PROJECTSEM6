@@ -15,7 +15,7 @@ const Join = () => {
 
     const handleJoinClassroom = async () => {
         try {
-            const response = await axios.post('https://aimlbackend.onrender.com/classrooms/join',
+            const response = await axios.post('https://aimlbackend.vercel.app/classrooms/join',
              { 
                 code: classCode,
                 userEmail: user.email // Pass user's email to the backend
