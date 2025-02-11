@@ -28,7 +28,8 @@
     "react-scripts": "5.0.1",
     "shortid": "^2.2.16",
     "styled-components": "^6.1.8",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "ldrs":"^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
